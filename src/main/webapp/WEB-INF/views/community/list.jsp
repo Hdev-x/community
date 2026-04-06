@@ -64,8 +64,8 @@
     <h1>COMMUNITY</h1>
 
     <div class="button-container">
-        <a href="${pageContext.request.contextPath}/comm/create" class="btn write-btn">글쓰기</a>
-        <a href="${pageContext.request.contextPath}/comm/mypage" class="btn mypage-btn">마이페이지</a>
+        <a href="${pageContext.request.contextPath}/community/create" class="btn write-btn">글쓰기</a>
+        <a href="${pageContext.request.contextPath}/community/mypage" class="btn mypage-btn">마이페이지</a>
         <a href="${pageContext.request.contextPath}/member/logout" class="btn logout-btn">로그아웃</a>
     </div>
 
@@ -86,11 +86,11 @@
         <c:choose>
             <c:when test="${not empty commList}">
                 <c:forEach var="item" items="${commList}">
-                    <tr onclick="location.href='${pageContext.request.contextPath}/comm/detail?no=${item.commNo}'">
+                    <tr onclick="location.href='${pageContext.request.contextPath}/community/detail?num=${item.commNo}'">
                         <td>${item.commNo}</td>
                         <td class="star">${item.commStar == 1 ? '★' : '☆'}</td>
                         <td class="title-cell">
-                            <a href="${pageContext.request.contextPath}/comm/detail?no=${item.commNo}">
+                            <a href="${pageContext.request.contextPath}/community/detail?num=${item.commNo}">
                                 ${item.commTitle}
                             </a>
                         </td>

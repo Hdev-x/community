@@ -44,7 +44,7 @@ ${not empty detail ? detail.content : "여기는 게시글의 상세 내용이 �
     </div>
 
     <div class="btn-area">
-        <a href="${pageContext.request.contextPath}/comm/list" class="list-btn">목록으로 돌아가기</a>
+        <a href="${pageContext.request.contextPath}/community/list" class="list-btn">목록으로 돌아가기</a>
     </div>
 </div>
 
