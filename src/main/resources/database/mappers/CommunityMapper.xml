@@ -10,20 +10,29 @@
 	<!-- 쿼리 태그 -->
 	<!-- ID : DAO에서 사용할 메서드명을 ID로 작성 -->
 	<!-- 컬럼명과 resultType의 Bean의 Setter 이름이 같은 걸 찾아서 대입 -->
-	<select id="list" resultType="com.gguek.app.community.CommunityDTO" parameterType="java.util.Map">
-        SELECT * FROM COMMUNITY
-        ORDER BY COMM_NO DESC 
-        OFFSET #{offset} ROWS FETCH NEXT #{size} ROWS ONLY
-    </select>
-    
-    <select id="getTotalCount" resultType="int">
-        SELECT COUNT(*) FROM COMMUNITY
-    </select>
-	
-	<select id="detail" resultType="com.gguek.app.community.CommunityDTO" parameterType="java.lang.String">
-  	SELECT * 
-	FROM COMMUNITY
-	WHERE COMM_NO = #{num}
-  </select>
-	
+	<select id="list"
+		resultType="com.gguek.app.community.CommunityDTO">
+		SELECT * FROM COMMUNITY
+		ORDER BY COMM_NO DESC
+	</select>
+
+	<select id="getTotalCount" resultType="int">
+		SELECT COUNT(*) FROM COMMUNITY
+	</select>
+
+	<select id="detail"
+		resultType="com.gguek.app.community.CommunityDTO"
+		parameterType="java.lang.String">
+		SELECT *
+		FROM COMMUNITY
+		WHERE COMM_NO = #{num}
+	</select>
+
+	<insert id="create"
+		parameterType="com.gguek.app.community.CommunityDTO">
+	    INSERT INTO COMMUNITY (COMM_NO, COMM_TITLE, COMM_NAME, COMM_CONTENTS, COMM_TIME, COMM_STAR)
+	    VALUES (COMM_SEQ.NEXTVAL, #{commTitle}, #{commName}, #{commContents}, SYSDATE, #{commStar})
+	</insert>
+
+
 </mapper>
